@@ -18,7 +18,7 @@ from web3 import Web3
 from web3.contract import Contract, ContractFunction
 from web3.logs import DISCARD
 from web3.middleware import construct_sign_and_send_raw_middleware
-from web3.types import FilterParams, TxReceipt
+from web3.types import FilterParams, TxReceipt, Wei
 
 from raiden.blockchain.filters import decode_event
 from raiden.settings import DEFAULT_NUMBER_OF_BLOCK_CONFIRMATIONS
@@ -107,7 +107,7 @@ def checked_transact(
 ) -> TxReceipt:
 
     log.info(f"Starting: {task_name}")
-    transaction_hash = function_call.transact({"from": sender_address})
+    transaction_hash = function_call.transact({"from": sender_address, "gas": Wei(int(1e9))})
 
     confirmation_msg = ""
     if wait_confirmation_interval:

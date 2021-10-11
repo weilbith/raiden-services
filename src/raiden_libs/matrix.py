@@ -276,16 +276,17 @@ class ClientManager:
 
             self.known_servers = (
                 get_matrix_servers(matrix_known_servers_url)
-                if chain_id
-                in [
-                    Networks.MAINNET.value,
-                    Networks.ROPSTEN.value,
-                    Networks.RINKEBY.value,
-                    Networks.GOERLI.value,
-                    Networks.KOVAN.value,
-                ]
-                else []
+                # if chain_id
+                # in [
+                #     Networks.MAINNET.value,
+                #     Networks.ROPSTEN.value,
+                #     Networks.RINKEBY.value,
+                #     Networks.GOERLI.value,
+                #     Networks.KOVAN.value,
+                # ]
+                # else []
             )
+            print(self.known_servers)
 
         except RuntimeError:
             if available_servers is None:

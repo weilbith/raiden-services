@@ -37,7 +37,7 @@ def get_contract_addresses_and_start_block(
     Returns: A dictionary with the contract addresses and start block for the given information
     """
     contract_data = get_contracts_deployment_info(
-        chain_id=chain_id,
+        chain_id=ChainID(5),
         version=contracts_version,
         development_environment=development_environment,
     )
